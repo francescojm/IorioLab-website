@@ -65,6 +65,38 @@
     background-position: right center;
   }
 }
+@media (max-width: 900px) {
+  .hero.hero-with-bg .hero-bg {
+    top: auto !important;
+    bottom: 20px !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 320px;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.8;
+  }
+
+  .hero.hero-with-bg .hero-copy {
+    padding-bottom: 340px;
+  }
+
+  /* Keep the existing overlays from hiding the artwork */
+  .hero.hero-with-bg::before,
+  .hero.hero-with-bg::after {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero.hero-with-bg .hero-bg {
+    height: 260px;
+  }
+
+  .hero.hero-with-bg .hero-copy {
+    padding-bottom: 280px;
+  }
+}
 </style></head>
 <body>
 <header class="nav-wrap"><div class="container nav"><a class="brand" href="index.html"><img src="assets/ioriolab-logo.svg" alt="Iorio Lab"></a></div></header>
