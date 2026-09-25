@@ -31,6 +31,34 @@
 @media (max-width: 560px) { .brand { width: 116px; } }
 
 .lab-photo { display: block; width: 100%; height: auto; border-radius: var(--radius, 24px); }
+
+/* Bring the hero closer to the construction notice. */
+.hero.hero-with-bg {
+  min-height: 0;
+  padding-top: 48px;
+  align-items: flex-start;
+}
+.hero.hero-with-bg .hero-copy { padding-top: 0; }
+@media (min-width: 901px) {
+  .hero.hero-with-bg .hero-bg { top: 48px !important; }
+}
+@media (max-width: 560px) {
+  .hero.hero-with-bg { padding-top: 32px; }
+}
+
+/* Keep the decorative wells in their own space below the copy. */
+.card.crispr-card { isolation: isolate; padding-bottom: 210px; }
+.card.crispr-card > .eyebrow,
+.card.crispr-card > h3,
+.card.crispr-card > p { position: relative; z-index: 1; }
+.card.crispr-card .mini-grid {
+  width: 150px;
+  right: 32px;
+  bottom: 28px;
+  z-index: 0;
+  opacity: .5;
+  pointer-events: none;
+}
 </style></head>
 <body>
 <header class="nav-wrap"><div class="container nav"><a class="brand" href="index.html"><img src="assets/ioriolab-logo.svg" alt="Iorio Lab"></a></div></header>
@@ -45,7 +73,7 @@
 <section class="thesis"><div class="container"><div class="thesis-head"><div><div class="eyebrow">Our approach</div><h2 class="section-title">Perturb. Measure. Predict.</h2></div><p class="lede">We use systematic perturbations as experiments from which to learn the rules governing cancer-cell behaviour.</p></div><div class="pillars"><article class="pillar"><span class="pillar-num">01 / PERTURB</span><h3>Interrogate biological systems</h3><p>We use CRISPR and pharmacological perturbations to reveal genes, pathways and interactions that determine cancer-cell fitness and drug response.</p></article><article class="pillar"><span class="pillar-num">02 / MEASURE</span><h3>Resolve cellular response</h3><p>We integrate molecular profiles across time, scale and context to distinguish specific dependency responses from shared cellular programmes.</p></article><article class="pillar"><span class="pillar-num">03 / PREDICT</span><h3>Learn transferable rules</h3><p>We develop statistical and machine-learning methods that generalise from existing screens to predict vulnerabilities in unseen contexts.</p></article></div></div></section>
 <section class="research" id="research"><div class="container"><div class="section-head"><div><div class="eyebrow">Research programmes</div><h2 class="section-title">What we are working on now.</h2></div><p class="lede">A common question connects our projects: can we move from cataloguing cancer vulnerabilities to understanding and predicting them?</p></div><div class="research-grid">
 <article class="card large"><div class="eyebrow">01 · DepSHOCK</div><h3>What happens when an oncogenic dependency disappears?</h3><p>Longitudinal perturbational profiling to deconvolute the molecular consequences of acute dependency loss and uncover shared and context-specific response programmes.</p><div class="data-viz trajectory"><svg viewBox="0 0 400 250" fill="none"><path d="M18 208 C90 201,91 133,150 144 C205 155,208 58,272 77 C317 90,320 32,385 39" stroke="#57bdbd" stroke-width="3"/><path d="M18 208 C92 200,105 175,155 180 C229 190,248 130,290 136 C338 143,349 104,385 100" stroke="#b6dcda" stroke-width="2"/><g fill="#57bdbd"><circle cx="18" cy="208" r="7"/><circle cx="150" cy="144" r="7"/><circle cx="272" cy="77" r="7"/><circle cx="385" cy="39" r="7"/></g></svg></div></article>
-<article class="card medium"><div class="eyebrow">02 · CRISPR-VUS / DAM</div><h3>Turning cancer variation into functional evidence.</h3><p>Large-scale functional maps that connect variants of uncertain significance to cancer dependencies, molecular context and therapeutic hypotheses.</p><div class="mini-grid" aria-hidden="true"></div></article>
+<article class="card medium crispr-card"><div class="eyebrow">02 · CRISPR-VUS / DAM</div><h3>Turning cancer variation into functional evidence.</h3><p>Large-scale functional maps that connect variants of uncertain significance to cancer dependencies, molecular context and therapeutic hypotheses.</p><div class="mini-grid" aria-hidden="true"></div></article>
 <article class="card half"><div class="eyebrow">03 · Genetic interactions</div><h3>Predicting synthetic lethalities beyond measured pairs.</h3><p>Uncertainty-aware models integrating genome-wide single-gene screens with targeted combinatorial perturbations.</p></article>
 <article class="card half"><div class="eyebrow">04 · Drug sensitivity & recovery</div><h3>Learning vulnerabilities created by adaptation.</h3><p>Mapping how cancer cells acquire, maintain and reverse drug-resistant states to expose new therapeutic opportunities.</p></article>
 </div></div></section>
