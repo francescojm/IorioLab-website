@@ -1,1 +1,203 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research — Iorio Lab</title><link rel="stylesheet" href="styles.css"></head><body><header class="nav-wrap scrolled"><div class="container nav"><a class="brand" href="index.html"><img src="assets/ioriolab-logo.svg" alt="Iorio Lab"></a><nav class="nav-links"><a href="research.html">Research</a><a href="people.html">People</a><a href="publications.html">Publications</a><a href="resources.html">Resources</a><a href="index.html#news">News</a><a class="nav-cta" href="join.html">Join us</a></nav><button class="menu-btn" aria-label="Menu">☰</button></div></header><main><section class="page-hero"><div class="container"><div class="eyebrow">Research</div><h1 class="display">Learning the rules of cancer vulnerability.</h1><p class="lede">Our research combines perturbational experiments and computational models to move from descriptive maps of dependencies toward mechanistic and predictive models of cellular response.</p></div></section><section class="page-content"><div class="container grid-list"><article class="simple-card" id="depshock"><div class="eyebrow">DepSHOCK</div><h3>Acute loss of oncogenic dependencies</h3><p>Longitudinal transcriptional profiling following tightly controlled gene knockout, with the goal of separating editing-associated, generic death and dependency-specific response programmes.</p></article><article class="simple-card" id="vus"><div class="eyebrow">CRISPR-VUS / DAM</div><h3>Functional interpretation of cancer variation</h3><p>Large-scale functional evidence linking variants of uncertain significance to genetic dependencies, molecular contexts and therapeutic hypotheses.</p></article><article class="simple-card" id="interactions"><div class="eyebrow">Genetic interactions</div><h3>Prediction beyond measured gene pairs</h3><p>Methods that combine genome-wide single-gene perturbations with limited combinatorial screens to infer genetic interactions with calibrated uncertainty.</p></article><article class="simple-card" id="recovery"><div class="eyebrow">Drug sensitivity & recovery</div><h3>Vulnerabilities created by adaptation</h3><p>Functional and molecular profiling of drug-resistant and recovering cancer models to identify acquired and reversible dependencies.</p></article></div></section></main><footer><div class="container"><div class="footer-bottom"><span>© 2026 Iorio Lab</span><span>Human Technopole · Milan</span></div></div></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Iorio Lab research: cancer dependencies, perturbational biology, CRISPR screening and predictive models connecting cancer vulnerabilities to therapeutic targets.">
+  <title>Research — Iorio Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Research-page refinements; the shared stylesheet supplies the site theme. */
+    .research-page .nav-wrap { position: relative; background: var(--paper, #f6f6f5); }
+    .research-page .brand { width: 138px; }
+    .research-page .page-hero { padding: 65px 0 65px; }
+    .research-page .page-hero .eyebrow { margin-bottom: 20px; }
+    .research-page .page-hero .display { font-size: clamp(3rem, 6.2vw, 6.2rem); line-height: 1.02; }
+    .research-page .page-hero .lede { max-width: 830px; }
+    .research-page .nav-links [aria-disabled="true"] { cursor: default; }
+    .research-page .nav-links [aria-disabled="true"]::after { display: none; }
+    .research-page .nav-links [aria-current="page"] { color: var(--teal-deep, #2b9093); }
+    .research-page a:focus-visible { outline: 2px solid #2b9093; outline-offset: 5px; }
+    .research-page .research-section { padding: 0 0 80px; }
+    .research-page .research-section-heading { border-top: 1px solid var(--line, #ded9d7); padding-top: 30px; }
+    .research-page .research-section-heading .eyebrow { margin-bottom: 16px; }
+    .research-page .research-section-heading .section-title { font-size: clamp(2rem, 3.8vw, 3.2rem); max-width: 900px; }
+    .research-page .grid-list { margin-top: 32px; align-items: stretch; }
+    .research-page .simple-card { padding: 32px; scroll-margin-top: 24px; }
+    .research-page .simple-card .eyebrow { margin-bottom: 18px; }
+    .research-page .simple-card h3 { font-size: clamp(1.45rem, 2.3vw, 1.9rem); line-height: 1.15; font-weight: 540; letter-spacing: -.025em; margin: 0 0 20px; }
+    .research-page .simple-card p { color: #625a5b; line-height: 1.65; margin: 0 0 16px; }
+    .research-page .simple-card p:last-child { margin-bottom: 0; }
+    .research-page .research-link { display: inline-block; font-size: .9rem; font-weight: 600; color: #2b9093; text-decoration: underline; text-underline-offset: 4px; margin-top: 8px; }
+    .research-page footer { padding: 30px 0; }
+    .research-page .footer-bottom { margin-top: 0; padding-top: 0; border-top: 0; }
+    @media (max-width: 900px) {
+      .research-page .nav { flex-wrap: wrap; gap: 16px; }
+      .research-page .nav-links { display: flex; flex-wrap: wrap; width: 100%; gap: 4px 20px; font-size: .9rem; }
+      .research-page .nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
+      .research-page .page-hero { padding-top: 44px; }
+    }
+    @media (max-width: 560px) {
+      .research-page .brand { width: 116px; }
+      .research-page .nav-links { gap: 4px 16px; font-size: .85rem; }
+      .research-page .page-hero .display { font-size: clamp(2.5rem, 10.5vw, 3.4rem); line-height: 1.04; }
+      .research-page .page-hero { padding-bottom: 44px; }
+      .research-page .simple-card { padding: 25px; }
+      .research-page .research-section { padding-bottom: 55px; }
+    }
+  
+    /* Legacy research illustrations remain in normal flow, clear of the text. */
+    .research-page .research-art {
+      display: grid;
+      place-items: center;
+      min-height: 200px;
+      margin: -8px 0 26px;
+      padding: 16px;
+      border-radius: 14px;
+      background: #f6f8f7;
+    }
+    .research-page .research-art img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 170px;
+      object-fit: contain;
+    }
+    .research-page .research-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px 32px;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid #e8e6e2;
+    }
+    .research-page .research-logos img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: min(180px, 42%);
+      max-height: 105px;
+      object-fit: contain;
+    }
+    .research-page .research-figure { margin: 28px 0 0; }
+    .research-page .research-figure img { display: block; width: 100%; height: auto; }
+    .research-page .research-figure figcaption { margin-top: 12px; font-size: .8rem; color: #706f6f; line-height: 1.5; }
+    .research-page .research-figure figcaption a { color: #2b9093; text-decoration: underline; text-underline-offset: 3px; }
+    .research-page .visual-credit { color: #c7c1c1; font-size: .76rem; margin: 18px 0 0; }
+    .research-page .visual-credit a { text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 560px) {
+      .research-page .research-art { min-height: 170px; }
+      .research-page .research-art img { max-height: 140px; }
+      .research-page .research-logos { gap: 20px; }
+      .research-page .research-logos img { max-height: 85px; }
+    }
+    /* Construction notice */
+body .site-notice {
+  background: #dff3f2;
+  color: #2d292a;
+  border-top: 1px solid #c5e4e2;
+  border-bottom: 1px solid #c5e4e2;
+  padding: 26px 0;
+}
+
+body .site-notice .site-notice-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+body .site-notice strong {
+  display: block;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+body .site-notice p {
+  margin: 6px 0 0;
+  font-size: .95rem;
+}
+
+body .site-notice .legacy-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-shrink: 0;
+  padding: 13px 20px;
+  border: 1px solid #2d292a;
+  border-radius: 999px;
+  color: #2d292a;
+  background: transparent;
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+body .site-notice .legacy-link:hover {
+  background: #2d292a;
+  color: #fff;
+}
+
+body .site-notice .legacy-link:focus-visible {
+  outline: 3px solid #2b9093;
+  outline-offset: 5px;
+}
+
+@media (max-width: 700px) {
+  body .site-notice .site-notice-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
+  </style>
+</head>
+<body class="research-page">
+<header class="nav-wrap"><div class="container nav">
+  <a class="brand" href="index.html"><img src="assets/ioriolab-logo.svg" alt="Iorio Lab home"></a>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="research.html" aria-current="page">Research</a>
+    <a href="people.html">People</a>
+    <a role="link" aria-disabled="true">Publications</a>
+    <a role="link" aria-disabled="true">Resources</a>
+    <a role="link" aria-disabled="true">News</a>
+    <a role="link" aria-disabled="true" class="nav-cta">Join us</a>
+  </nav>
+</div></header>
+<main>
+  <aside class="site-notice" aria-label="Website under construction">
+  <div class="container site-notice-inner">
+    <div>
+      <strong>Our new website is under construction.</strong>
+      <p>For information about our research, people and publications,
+         visit our legacy website.</p>
+    </div>
+    <a class="legacy-link"
+       href="https://sites.google.com/view/ioriolab/home">
+      Visit our legacy website <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</aside>
+  <section class="page-hero"><div class="container">
+    <div class="eyebrow">Research</div>
+    <h1 class="display">Learning the rules of cancer vulnerability</h1>
+    <p class="lede">We combine perturbational experiments, functional genomics and machine learning to understand the genes and pathways that sustain cancer cells, and translate these insights into therapeutic hypotheses. Experiments inform our models; models help us decide what to test next.</p>
+  </div></section>
+<section class="research-section" aria-labelledby="programmes-title"><div class="container"><div class="research-section-heading"><div class="eyebrow">Research programmes</div><h2 class="section-title" id="programmes-title">From perturbation to prediction</h2></div><div class="grid-list"><article class="simple-card" id="depshock"><div class="eyebrow">01 · ERC — DepSHOCK</div><h3>What happens after acute inactivation of a genetic dependency?</h3><p>We extend the concept of oncogenic shock to cancer dependency genes: genes whose loss compromises cancer-cell survival. Our hypothesis is that the resulting imbalance between survival and death signals leaves a measurable transcriptional footprint that reveals the pathways sustaining each dependency.</p><p>We combine longitudinal perturbational profiling at bulk and single-cell resolution with statistical methods and unsupervised machine learning to separate shared responses from dependency-specific programmes. We investigate whether these DepSHOCK signatures can provide mechanistically grounded therapeutic markers, predictive tools and clues for combination therapies.</p><div class="research-logos"><img src="research-assets/depshock.png" alt="DepSHOCK" width="320" height="320" loading="lazy" decoding="async" class=""><img src="research-assets/erc.png" alt="European Research Council" width="331" height="285" loading="lazy" decoding="async" class=""></div></article>
+<article class="simple-card" id="vus"><div class="eyebrow">02 · CRISPR-VUS / DAM</div><h3>Turning cancer variation into functional evidence</h3><p>Large-scale functional maps connect variants of uncertain significance to cancer dependencies, molecular context and therapeutic hypotheses. We use functional evidence to investigate how cancer variation shapes the dependencies of tumour cells.</p></article>
+<article class="simple-card" id="interactions"><div class="eyebrow">03 · Genetic interactions</div><h3>Predicting beyond measured gene pairs</h3><p>We develop methods that combine genome-wide single-gene perturbations with targeted combinatorial screens to infer genetic interactions. Our aim is to predict vulnerabilities beyond the gene pairs already measured, while quantifying uncertainty and prioritising interactions for experimental follow-up.</p></article>
+<article class="simple-card" id="recovery"><div class="eyebrow">04 · AIRC — Drug sensitivity recovery</div><h3>Finding vulnerabilities that reverse drug resistance</h3><p>The Cancer Drug Sensitivity Recovery Map uses CRISPR screening and computational analysis to identify genetic vulnerabilities in drug-resistant cancer models across tumour types and commonly used chemotherapies.</p><p>We prioritise targets whose perturbation can restore drug sensitivity and inform combination therapies. Complementary work examines non-genetic resistance driven by the tumour microenvironment, including how factors secreted by cancer-associated fibroblasts alter drug responses in breast cancer.</p><div class="research-logos"><img src="research-assets/airc.jpg" alt="AIRC Foundation for Cancer Research" width="458" height="573" loading="lazy" decoding="async" class=""></div></article></div></div></section>
+<section class="research-section" aria-labelledby="approaches-title"><div class="container"><div class="research-section-heading"><div class="eyebrow">Research themes</div><h2 class="section-title" id="approaches-title">The methods and questions connecting our projects</h2></div><div class="grid-list"><article class="simple-card" id="targets"><div class="research-art"><img src="research-assets/genetic-dependencies.png" alt="DNA and a target: mapping genetic dependencies to therapeutic targets" width="347" height="330" loading="lazy" decoding="async" class=""></div><div class="eyebrow">Cancer dependency mapping</div><h3>From genetic dependencies to therapeutic targets</h3><p>We analyse genome-wide CRISPR screens alongside genomic, transcriptomic and proteomic data to understand which genes and pathways tumours rely on for survival and growth. Through the European Cancer Dependency Map initiative, we contribute to large-scale dependency datasets and computational frameworks for target prioritisation.</p><p>We integrate molecular biomarkers and drug tractability, and use patient-derived models to help connect preclinical discoveries to therapeutic response.</p><a class="research-link" href="https://www.nature.com/articles/s41586-019-1103-9">Related study <span aria-hidden="true">↗</span></a><figure class="research-figure"><a href="research-assets/crispr-target-discovery.png" aria-label="View the CRISPR target-discovery diagram at full size"><img src="research-assets/crispr-target-discovery.png" alt="Diagram connecting genome-wide CRISPR screens, cancer dependencies and new therapeutic targets" width="1280" height="398" loading="lazy" decoding="async" class=""></a><figcaption>From genome-wide CRISPR screening to target prioritisation. <a href="research-assets/crispr-target-discovery.png">View full-size figure ↗</a></figcaption></figure></article>
+<article class="simple-card" id="crispr-methods"><div class="research-art"><img src="research-assets/crispr-analysis.png" alt="DNA and scissors on a computer screen, illustrating computational analysis of CRISPR screens" width="406" height="308" loading="lazy" decoding="async" class=""></div><div class="eyebrow">CRISPR screening methods</div><h3>More reliable screens. More informative experiments</h3><p>We develop and maintain tools for assessing preclinical cancer models and processing, analysing and visualising genome-editing screens. Our methods correct technology-specific biases and support the design and optimisation of guide RNA libraries for pooled CRISPR-Cas9 experiments.</p><a class="research-link" href="https://groups-dashboards.fht.org/iorio/">Explore our software and computable manuscripts <span aria-hidden="true">↗</span></a></article>
+<article class="simple-card" id="repositioning"><div class="research-art"><img src="research-assets/drug-repositioning.png" alt="A capsule surrounded by circular arrows, illustrating drug repositioning" width="274" height="330" loading="lazy" decoding="async" class=""></div><div class="eyebrow">Drug repositioning</div><h3>New therapeutic opportunities for existing compounds</h3><p>We integrate disease profiles with the molecular responses induced by drugs to identify opportunities for repurposing existing compounds. Our analyses span transcriptomics, proteomics, single-cell and spatial data, looking for responses that could counter disease-associated changes.</p><p>We explore graph-based methods, representation learning and causal inference to move beyond simple signature matching. Predictions are prioritised for mechanistic plausibility and experimental follow-up with collaborators.</p></article>
+<article class="simple-card" id="ageing"><div class="research-art"><img src="research-assets/cancer-ageing.png" alt="An older person beside a cluster of cancer cells" width="353" height="330" loading="lazy" decoding="async" class=""></div><div class="eyebrow">Cancer and ageing</div><h3>How does biological age reshape cancer vulnerability?</h3><p>We investigate how ageing changes cellular fitness, genetic dependencies and responses to perturbation. By combining functional genomics, multi-omic profiling and machine learning, we aim to uncover the molecular programmes linking ageing to cancer development and therapeutic response.</p><p>A particular focus is the development of ageing clocks and predictive models that capture biological age and help identify vulnerabilities emerging during ageing.</p></article></div></div></section>
+<section class="research-section" aria-labelledby="collaborations-title"><div class="container"><div class="research-section-heading"><div class="eyebrow">Collaborative projects</div><h2 class="section-title" id="collaborations-title">Shared data. Broader possibilities.</h2></div><div class="grid-list"><article class="simple-card" id="perturbation-catalogue"><div class="eyebrow">Open Targets</div><h3>A unified view of genetic perturbation</h3><p>Within the Perturbation Catalogue project, we harmonise and meta-analyse CRISPR datasets from diverse studies. We develop target-prioritisation approaches for cancer, neurodegeneration and other diseases, using shared perturbation evidence to investigate gene function and genetic vulnerabilities.</p><a class="research-link" href="https://www.opentargets.org/">Open Targets <span aria-hidden="true">↗</span></a><div class="research-logos"><img src="research-assets/open-targets.png" alt="Open Targets" width="323" height="333" loading="lazy" decoding="async" class=""></div></article>
+<article class="simple-card" id="neurocov"><div class="eyebrow">Horizon Europe — NeuroCOV</div><h3>Drug repositioning for the neurological effects of COVID-19</h3><p>We develop computational methods that integrate gene-expression profiles from NeuroCOVID patient blood samples with public post-perturbation datasets. Pattern matching and machine learning help prioritise approved drugs that could counter disease-associated molecular changes.</p><a class="research-link" href="https://neurocov.eu/">NeuroCOV consortium <span aria-hidden="true">↗</span></a><div class="research-logos"><img src="research-assets/neurocov.png" alt="NeuroCOV" width="1280" height="1275" loading="lazy" decoding="async" class=""><img src="research-assets/european-commission.png" alt="European Commission" width="854" height="630" loading="lazy" decoding="async" class=""></div></article>
+<article class="simple-card" id="adc"><div class="eyebrow">SEMM / Nerviano Medical Sciences</div><h3>Prioritising targets for antibody–drug conjugates</h3><p>We integrate genomic, transcriptomic and proteomic data to identify cancer-specific cell-surface targets for antibody–drug conjugates. This work aims to prioritise target–payload combinations and investigate how tumour heterogeneity and dependency signals can inform their efficacy and selectivity.</p><div class="research-logos"><img src="research-assets/nerviano-medical-sciences.png" alt="Nerviano Medical Sciences" width="573" height="323" loading="lazy" decoding="async" class=""><img src="research-assets/semm.jpg" alt="European School of Molecular Medicine" width="200" height="140" loading="lazy" decoding="async" class=""></div></article></div></div></section>
+</main>
+<footer><div class="container"><div class="footer-bottom"><span>© 2026 Iorio Lab</span><span>Human Technopole · Milan</span></div><p class="visual-credit">Research illustrations created with <a href="https://www.biorender.com/">BioRender</a>.</p></div></footer>
+</body>
+</html>

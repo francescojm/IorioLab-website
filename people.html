@@ -55,15 +55,90 @@
 @media(max-width:650px){.people-page .people-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.people-page .alumni-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.people-page .person-info{padding:16px}.people-page .section-heading{display:block}.people-page .section-note{margin-top:8px}.people-page .visitor-layout{grid-template-columns:1fr}.people-page .people-footer{flex-direction:column;gap:6px}}
 @media(max-width:400px){.people-page .people-grid{grid-template-columns:1fr}.people-page .alumni-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.people-page .container{width:calc(100% - 34px)}.people-page .brand{width:116px}.people-page .nav-links{font-size:.85rem}.people-page .people-hero{padding-bottom:44px}.people-page .team-section{padding-bottom:55px}}
+/* Construction notice */
+body .site-notice {
+  background: #dff3f2;
+  color: #2d292a;
+  border-top: 1px solid #c5e4e2;
+  border-bottom: 1px solid #c5e4e2;
+  padding: 26px 0;
+}
+
+body .site-notice .site-notice-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+body .site-notice strong {
+  display: block;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+body .site-notice p {
+  margin: 6px 0 0;
+  font-size: .95rem;
+}
+
+body .site-notice .legacy-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-shrink: 0;
+  padding: 13px 20px;
+  border: 1px solid #2d292a;
+  border-radius: 999px;
+  color: #2d292a;
+  background: transparent;
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+body .site-notice .legacy-link:hover {
+  background: #2d292a;
+  color: #fff;
+}
+
+body .site-notice .legacy-link:focus-visible {
+  outline: 3px solid #2b9093;
+  outline-offset: 5px;
+}
+
+@media (max-width: 700px) {
+  body .site-notice .site-notice-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
 </style>
 </head>
 <body class="people-page">
 <header class="nav-wrap"><div class="container nav">
 <a class="brand" href="index.html"><img src="assets/ioriolab-logo.svg" alt="Iorio Lab home"></a>
 <nav class="nav-links" aria-label="Main navigation">
-<a role="link" aria-disabled="true">Research</a><a href="people.html" aria-current="page">People</a><a role="link" aria-disabled="true">Publications</a><a role="link" aria-disabled="true">Resources</a><a role="link" aria-disabled="true">News</a><a role="link" aria-disabled="true" class="nav-cta">Join us</a>
+<a href="research.html">Research</a>
+<a href="people.html" aria-current="page">People</a>
+<a role="link" aria-disabled="true">Publications</a><a role="link" aria-disabled="true">Resources</a><a role="link" aria-disabled="true">News</a><a role="link" aria-disabled="true" class="nav-cta">Join us</a>
 </nav></div></header>
 <main>
+    <aside class="site-notice" aria-label="Website under construction">
+  <div class="container site-notice-inner">
+    <div>
+      <strong>Our new website is under construction.</strong>
+      <p>For information about our research, people and publications,
+         visit our legacy website.</p>
+    </div>
+    <a class="legacy-link"
+       href="https://sites.google.com/view/ioriolab/home">
+      Visit our legacy website <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</aside>
 <section class="people-hero"><div class="container"><div class="eyebrow">People</div><h1>One Group. Two arms.<br>Algorithms and experiments.</h1><p class="intro">We bring computational scientists, molecular biologists and genome engineers together around the same biological questions. Computation shapes the experiments; experiments reshape the models.</p></div></section>
 <section class="team-section" aria-labelledby="team-title"><div class="container"><div class="section-heading"><h2 id="team-title">Meet the team</h2><p class="section-note">Individual profiles open on our legacy website.</p></div><div class="people-grid">
     <article class="person"><a class="person-link" href="https://sites.google.com/view/ioriolab/francesco-iorio"><div class="portrait"><img src="people-assets/francesco-iorio.jpg" alt="Francesco Iorio" loading="lazy" decoding="async"></div><div class="person-info"><p class="person-role">Group Leader</p><h3>Francesco Iorio</h3><span class="profile-link">View profile <span aria-hidden="true">↗</span></span></div></a></article>
