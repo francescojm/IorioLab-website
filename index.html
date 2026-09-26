@@ -157,6 +157,76 @@
   }
 }
 
+
+/* Responsive navigation and paired card illustrations. */
+.card-visuals { display: contents; }
+.nav-links [aria-disabled="true"] { cursor: default; }
+.nav-links [aria-disabled="true"]::after { display: none; }
+.nav-links a:focus-visible { outline: 2px solid #2b9093; outline-offset: 5px; }
+
+@media (max-width: 900px) {
+  .nav-wrap .nav { flex-wrap: wrap; gap: 16px; }
+  .nav-wrap .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    gap: 4px 20px;
+    font-size: .9rem;
+  }
+  .nav-wrap .nav-links > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .nav-wrap .menu-btn { display: none; }
+
+  .card.large, .card.crispr-card { padding-bottom: 32px; }
+  .card .card-visuals {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr);
+    align-items: center;
+    gap: clamp(16px, 4vw, 32px);
+    margin-top: 28px;
+    min-width: 0;
+  }
+  .card.large .card-visuals .erc-logo,
+  .card.crispr-card .card-visuals .crispr-vus-logo {
+    position: static;
+    inset: auto;
+    order: 0;
+    display: block;
+    justify-self: center;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .card.large .card-visuals .erc-logo { max-width: 130px; }
+  .card.crispr-card .card-visuals .crispr-vus-logo { max-width: 160px; }
+  .card.large .card-visuals .data-viz.trajectory {
+    position: static;
+    inset: auto;
+    order: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 460 / 300;
+  }
+  .card-visuals .trajectory svg { display: block; width: 100%; height: 100%; }
+  .card.crispr-card .card-visuals .mini-grid {
+    position: static;
+    inset: auto;
+    order: 1;
+    justify-self: center;
+    width: 100%;
+    max-width: 140px;
+    gap: 4px;
+  }
+}
+@media (max-width: 560px) {
+  .nav-wrap .nav-links { gap: 4px 16px; font-size: .85rem; }
+  .card.large, .card.crispr-card { padding-bottom: 25px; }
+}
+
 </style></head>
 <body>
 <header class="nav-wrap">
@@ -205,7 +275,7 @@
   <p class="lede">A common question connects our projects: can we move from cataloguing cancer vulnerabilities to understanding and predicting them?</p></div><div class="research-grid">
     <article class="card large"><div class="eyebrow">01 · DepSHOCK</div><h3>What happens after acute inactivation of a genetic dependency?</h3>
       <p>Longitudinal perturbational profiling and unsupervised machine learning to characterise cancer dependency shock (DepSHOCK), uncover the pathways sustaining genetic dependencies, and build models that predict dependency from DepSHOCK response signatures.</p>
-      <div class="data-viz trajectory">
+      <div class="card-visuals depshock-visuals"><div class="data-viz trajectory">
   <svg viewBox="0 0 460 300" fill="none"
        role="img"
        aria-label="After oncogene inactivation, survival signalling drops rapidly while death signalling persists longer.">
@@ -242,15 +312,15 @@
 <img class="erc-logo"
      src="assets/erc-logo.png"
      alt="European Research Council"
-     loading="lazy">
+     loading="lazy"></div>
     </article>  
     <article class="card medium crispr-card"><div class="eyebrow">02 · CRISPR-VUS / DAM</div><h3>Turning cancer variation into functional evidence</h3>
       <p>Large-scale functional maps that connect variants of uncertain significance to cancer dependencies, molecular context and therapeutic hypotheses.</p>
-      <div class="mini-grid" aria-hidden="true"></div>
+      <div class="card-visuals crispr-visuals"><div class="mini-grid" aria-hidden="true"></div>
       <img class="crispr-vus-logo"
        src="assets/crispr-vus-logo.png"
        alt="CRISPR-VUS"
-       loading="lazy">
+       loading="lazy"></div>
     </article>
 <article class="card half"><div class="eyebrow">03 · Genetic interactions</div>
   <h3>Predicting synthetic lethalities beyond measured pairs</h3><p>Uncertainty-aware models integrating genome-wide single-gene screens with targeted combinatorial perturbations.</p></article>
