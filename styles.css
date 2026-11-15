@@ -395,4 +395,98 @@ footer{background:var(--ink);color:white;padding:70px 0 35px}.footer-grid{displa
     line-height: .96;
   }
 }
+/* Profile page layout */
+.profile-main {
+  padding: 130px 0 96px; /* Clears the fixed .nav-wrap header */
+}
 
+/* Break .profile-layout out of .container's 1240px cap for a true 50vw / 50vw split */
+.profile-main .container:has(.profile-layout) {
+  width: 100%;
+  max-width: none;
+}
+
+.profile-main .back-link {
+  display: inline-block;
+  margin: 0 0 28px 48px;
+  font-size: .92rem;
+  color: var(--muted);
+}
+
+.profile-main .back-link:hover {
+  color: var(--ink);
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* True 50% / 50% viewport split */
+  align-items: start;
+}
+
+.profile-photo {
+  width: 100%;
+  height: auto;        /* Removes the fixed viewport height */
+  max-height: 85vh;    /* Prevents overly tall portraits from overflowing the screen */
+  position: sticky;
+  top: 24px;
+  overflow: hidden;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;        /* Preserves the original aspect ratio */
+  max-height: 85vh;
+  object-fit: contain; /* Guarantees zero cropping */
+  display: block;
+}
+
+.profile-copy {
+  min-width: 0;
+  padding: 8px 64px 48px;
+  max-width: 680px; /* Keeps line length readable on wide monitors */
+}
+
+.people-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: .78rem;
+  color: #aaa3a3;
+}
+
+/* Match the site's 900px tablet/mobile breakpoint */
+@media (max-width: 900px) {
+  .profile-main {
+    padding: 110px 0 72px;
+  }
+
+  .profile-main .back-link {
+    margin-left: 17px;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo {
+    position: static;
+    height: 440px;
+    border-radius: 0;
+  }
+
+  .profile-copy {
+    padding: 32px 17px 0;
+  }
+}
+body[data-person] .nav-wrap {
+  position: relative;
+}
+
+body[data-person] .profile-main {
+  padding-top: 32px;
+}
+
+body[data-person] .profile-photo {
+  height: calc(100vh - 48px);
+  top: 24px;
+}
